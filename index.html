@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>嘘告白 — 設定資料室</title>
+<style>
+:root{
+  --bg:#f5f2ed;--paper:#fffdf9;--ink:#232323;--muted:#6f6a63;--line:#d9d2c8;
+  --accent:#8e2f45;--accent2:#c7986b;--soft:#efe5df;--shadow:0 8px 30px rgba(45,35,28,.08)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","YuGothic",Meiryo,sans-serif;line-height:1.8}
+a{color:inherit}
+.layout{display:grid;grid-template-columns:300px minmax(0,1fr);min-height:100vh}
+aside{position:sticky;top:0;height:100vh;overflow:auto;background:#211d1b;color:#f6efe8;padding:28px 22px}
+.brand{font-family:Georgia,"Yu Mincho","Hiragino Mincho ProN",serif;font-size:28px;letter-spacing:.12em;margin:0 0 4px}
+.kicker{font-size:12px;letter-spacing:.18em;color:#c7bdb3;margin-bottom:28px}
+nav h3{font-size:11px;letter-spacing:.14em;color:#aa9f96;margin:24px 0 8px;text-transform:uppercase}
+nav a{display:block;text-decoration:none;padding:7px 10px;border-radius:8px;color:#e7ddd5;font-size:14px}
+nav a:hover{background:#352f2c}
+main{min-width:0}
+.hero{padding:84px clamp(26px,7vw,100px) 58px;background:linear-gradient(140deg,#fffaf4 0%,#f0e3dd 100%);border-bottom:1px solid var(--line)}
+.hero .eyebrow{font-size:12px;letter-spacing:.22em;color:var(--accent);font-weight:700}
+.hero h1{font-family:Georgia,"Yu Mincho","Hiragino Mincho ProN",serif;font-size:clamp(40px,7vw,82px);line-height:1.05;letter-spacing:.04em;margin:14px 0}
+.hero p{max-width:850px;font-size:17px;color:#514b46}
+.hero .hook{margin-top:26px;padding:18px 22px;border-left:4px solid var(--accent);background:rgba(255,255,255,.62);font-family:Georgia,"Yu Mincho",serif;font-size:20px}
+.content{padding:50px clamp(22px,6vw,86px) 100px}
+.section{max-width:1080px;margin:0 auto 72px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:24px}
+.section h2{font-family:Georgia,"Yu Mincho",serif;font-size:31px;margin:0}
+.section .sub{color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 6px;font-size:20px}
+.card .meta{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:.08em;margin-bottom:12px}
+.card p{margin:8px 0;color:#49433e}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.tag{font-size:11px;padding:4px 8px;border:1px solid #d9cbc0;border-radius:999px;background:#fbf5f0;color:#6b5345}
+details{background:var(--paper);border:1px solid var(--line);border-radius:14px;margin:12px 0;overflow:hidden}
+summary{cursor:pointer;padding:17px 20px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:15px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"＋";color:var(--accent);font-size:20px;line-height:1}
+details[open] summary:after{content:"−"}
+.detail-body{padding:0 20px 20px;color:#49433e;border-top:1px solid #ece6df}
+.detail-body ul{padding-left:1.2em}
+.quote{padding:18px 20px;background:#2a2421;color:#fff7ef;border-radius:12px;font-family:Georgia,"Yu Mincho",serif}
+.timeline{position:relative;padding-left:24px}
+.timeline:before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:#d8c9bd}
+.titem{position:relative;margin:0 0 24px;padding-left:12px}
+.titem:before{content:"";position:absolute;left:-23px;top:9px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.titem b{display:block}
+.two-col{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+.table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.table th,.table td{padding:12px 14px;border-bottom:1px solid #e9e3dc;text-align:left;vertical-align:top}
+.table th{width:28%;background:#f5eee8}
+.note{font-size:13px;color:var(--muted)}
+.footer{max-width:1080px;margin:0 auto;border-top:1px solid var(--line);padding-top:24px;color:var(--muted);font-size:12px}
+.search{margin-top:18px}
+.search input{width:100%;padding:10px 12px;border-radius:9px;border:1px solid #4a423e;background:#2d2825;color:white}
+.hidden{display:none!important}
+@media(max-width:900px){
+ .layout{display:block}.layout aside{position:relative;height:auto}.grid,.two-col{grid-template-columns:1fr}
+ aside nav{columns:2;column-gap:18px} nav h3{break-after:avoid}
+}
+@media(max-width:560px){aside nav{columns:1}.hero{padding-top:52px}.content{padding-top:34px}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside>
+  <div class="brand">嘘告白</div>
+  <div class="kicker">SETTING ARCHIVE</div>
+  <div class="search"><input id="search" placeholder="設定を検索" /></div>
+  <nav>
+    <h3>Overview</h3>
+    <a href="#top">トップ</a>
+    <a href="#rules">作品原則</a>
+    <a href="#timeline">事件時系列</a>
+    <h3>Characters</h3>
+    <a href="#characters">主要人物</a>
+    <a href="#relations">関係構造</a>
+    <h3>World</h3>
+    <a href="#school">学校・部活</a>
+    <a href="#outside">学校外</a>
+    <a href="#props">小道具</a>
+    <h3>Story</h3>
+    <a href="#chapters">章構成</a>
+    <a href="#notes">執筆メモ</a>
+  </nav>
+</aside>
+
+<main>
+<section class="hero" id="top">
+  <div class="eyebrow">KAKUYOMU LOVE COMEDY / WORKING TITLE</div>
+  <h1>嘘告白</h1>
+  <p>罰ゲームの嘘告白。人間観察が趣味の少年。そこから崩れていく女子グループと、何も狙っていない少女だけが自然に近づいていく学園ラブコメ。</p>
+  <div class="hook">「嘘だったんだ」――「ふーん。あっそ。じゃあ、バイバイ」</div>
+</section>
+
+<div class="content">
+
+<section class="section searchable" id="rules">
+  <div class="section-head"><h2>作品原則</h2><span class="sub">この作品で崩さない核</span></div>
+  <div class="grid">
+    <div class="card">
+      <div class="meta">TITLE STRUCTURE</div><h3>タイトルの3段構成</h3>
+      <p><b>嘘告白</b> ＋ <b>主人公の性質</b> ＋ <b>結果として何が起きるか</b>。</p>
+      <p>入口はテンプレを使い、独自性は内心・観察・嫉妬・自己正当化・予測のズレで出す。</p>
+    </div>
+    <div class="card">
+      <div class="meta">PROTAGONIST RULE</div><h3>主人公は陰キャではない</h3>
+      <p>学校では意図的に省エネ運転。学校外では清潔感のある服装で社交的に振る舞う。</p>
+      <p>人間観察は超能力ではなく、必ず視線・声色・行動・過去の情報から推測する。</p>
+    </div>
+    <div class="card">
+      <div class="meta">MORAL TONE</div><h3>未成年の未熟さで成立させる</h3>
+      <p>悪ノリ、嫉妬、プライド、判断ミス。行動の醜悪さは薄めないが、完成された悪人にはしない。</p>
+    </div>
+    <div class="card">
+      <div class="meta">ROMANCE ENGINE</div><h3>策略するほど遠ざかる</h3>
+      <p>綾華・美怜・莉央は主人公を意識するほど牽制や策に寄る。ひよりだけは狙わないから近づく。</p>
+    </div>
+  </div>
+</section>
+
+<section class="section searchable" id="characters">
+  <div class="section-head"><h2>主要人物</h2><span class="sub">人物から物語を動かす</span></div>
+  <div class="grid">
+    <div class="card">
+      <div class="meta">PROTAGONIST</div><h3>相良 透真</h3>
+      <p>人間観察が趣味。学校では目立たず、外では個人経営カフェで働き、知らない人とも自然に話す。</p>
+      <div class="tags"><span class="tag">観察者</span><span class="tag">社交的</span><span class="tag">省エネ登校</span><span class="tag">自分の恋心には鈍い</span></div>
+    </div>
+    <div class="card">
+      <div class="meta">BEST FRIEND / READER VOICE</div><h3>藤堂 直哉</h3>
+      <p>中学で関西から転居。標準語に侵食された中途半端な関西弁。透真への常識的なツッコミ担当。</p>
+      <div class="tags"><span class="tag">読者代弁</span><span class="tag">親友</span><span class="tag">逆ツッコミされる</span></div>
+    </div>
+    <div class="card">
+      <div class="meta">FALSE CONFESSION</div><h3>九条 綾華</h3>
+      <p>高嶺の花。成績トップクラス、女子バスケ部エース、恋愛経験ゼロ。幼い告白にうんざりしていた。</p>
+      <div class="tags"><span class="tag">クール</span><span class="tag">高プライド</span><span class="tag">恋愛未経験</span><span class="tag">一章で玉砕</span></div>
+    </div>
+    <div class="card">
+      <div class="meta">JEALOUS STRATEGIST</div><h3>小日向 美怜</h3>
+      <p>小動物系の癒し顔。女子バスケ部マネージャー。男子から直接チヤホヤされる一方、綾華への憧れの視線を知っている。</p>
+      <div class="tags"><span class="tag">嫉妬深い</span><span class="tag">気配り上手</span><span class="tag">録音</span><span class="tag">噂流し</span></div>
+    </div>
+    <div class="card">
+      <div class="meta">INSTIGATOR</div><h3>黒瀬 莉央</h3>
+      <p>ギャル系インフルエンサー。人の反応をコンテンツ的に面白がる。校則ギリギリの自然なネイルや髪の見せ方に敏感。</p>
+      <div class="tags"><span class="tag">悪ノリ</span><span class="tag">SNS</span><span class="tag">見せ方</span><span class="tag">停学</span></div>
+    </div>
+    <div class="card">
+      <div class="meta">MAIN HEROINE</div><h3>天野 ひより</h3>
+      <p>第一印象は何も考えていないバカ。実は勉強・運動・家事が得意。妹持ちで世話好き。人間関係だけ天然。</p>
+      <div class="tags"><span class="tag">正ヒロイン</span><span class="tag">予測不能</span><span class="tag">料理上手</span><span class="tag">加減が下手</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section searchable" id="relations">
+  <div class="section-head"><h2>関係構造</h2><span class="sub">誰が何を欲し、どこでズレるか</span></div>
+  <table class="table">
+    <tr><th>綾華 → 透真</th><td>最初は罰ゲーム。理想的な彼氏ムーブに満足し、最終的に「男子で一番」へ。真実を言えば本物になれると思って玉砕。</td></tr>
+    <tr><th>美怜 → 透真</th><td>ウォータージャグを運んでもらった小さな親切から好意。「自分が先に良さを見つけた」という所有感へ。</td></tr>
+    <tr><th>莉央 → 透真</th><td>四章までは面白い反応を期待する対象。崩壊後、街中の垢抜けた透真を見て「学校では隠している」と気づき興味を持つ。</td></tr>
+    <tr><th>ひより → 透真</th><td>罪悪感から謝罪。その後は何も狙わず自然に交流。策略ゼロで最も近い位置へ。</td></tr>
+    <tr><th>透真 → ひより</th><td>「単純」と思ったのに予測を外され続ける。やがて「もっと見ていたい」が恋愛感情へ変わる。</td></tr>
+  </table>
+</section>
+
+<section class="section searchable" id="timeline">
+  <div class="section-head"><h2>事件時系列</h2><span class="sub">嘘告白からグループ崩壊まで</span></div>
+  <div class="timeline">
+    <div class="titem"><b>嘘告白前</b><span>美怜は透真へ好意。莉央が美怜に誘導される形で企画を具体化。会話は美怜が録音。</span></div>
+    <div class="titem"><b>Day 1</b><span>綾華が透真へ告白。透真は罰ゲームをほぼ察しながら「面白そう」で受諾。</span></div>
+    <div class="titem"><b>Day 2–6</b><span>透真が紳士的に交際。綾華は満更でもなくなり、美怜は焦り、莉央は面白がり、ひよりは遅れて不安になる。</span></div>
+    <div class="titem"><b>Day 7</b><span>綾華が一人で真相を告白。三人は影から見守る。透真は「あっそ、バイバイ」。</span></div>
+    <div class="titem"><b>その後</b><span>美怜が秘密裏に噂を流し、透真を慰める形で接近。綾華への悪評も広がる。</span></div>
+    <div class="titem"><b>美怜の告白</b><span>透真は思惑をほぼ見抜き、「普通に生理的に無理」。美怜は録音を教師へ提出。</span></div>
+    <div class="titem"><b>莉央停学</b><span>録音上の首謀者として莉央が処分。ひよりは透真と自然に近づく。</span></div>
+    <div class="titem"><b>莉央復帰</b><span>綾華・美怜・莉央が教室で激論。ひよりも巻き込まれ「もう知らん！」。四人組崩壊。</span></div>
+    <div class="titem"><b>崩壊後</b><span>三人は牽制し合い、ひよりだけが自然に透真の隣へ。莉央は街中の透真を見て新たな興味を持つ。</span></div>
+  </div>
+</section>
+
+<section class="section searchable" id="school">
+  <div class="section-head"><h2>学校・部活</h2><span class="sub">今後確定していく設定</span></div>
+  <details open><summary>高校 <span>舞台の中心</span></summary><div class="detail-body">
+    <ul>
+      <li>学校名：未定</li><li>共学・普通科を想定</li><li>透真は目立たない立ち位置を意図的に維持</li>
+      <li>綾華は「高嶺の花」。男子から直接チヤホヤされるより、遠巻きに憧れられる</li>
+      <li>莉央は校則違反にならない境界線でおしゃれを楽しむ</li>
+    </ul></div></details>
+  <details><summary>女子バスケットボール部</summary><div class="detail-body">
+    <ul><li>綾華：エース</li><li>美怜：マネージャー</li><li>ウォータージャグの一件が美怜の恋の起点</li></ul>
+  </div></details>
+  <details><summary>校則</summary><div class="detail-body">
+    <p>髪色・化粧・ネイルは「過度でなければ黙認」程度にして、莉央が透明〜薄いピンクのネイルや自然な髪色で境界線を攻められる余地を残す。</p>
+  </div></details>
+</section>
+
+<section class="section searchable" id="outside">
+  <div class="section-head"><h2>学校外</h2><span class="sub">透真の別の顔を見せる場所</span></div>
+  <div class="grid">
+    <div class="card"><div class="meta">CAFE</div><h3>個人経営カフェ（名称未定）</h3><p>透真のアルバイト先。学生以外の客と接し、年齢・性別を問わず話を聞く。学校外の社交性を自然に見せる拠点。</p></div>
+    <div class="card"><div class="meta">CITY</div><h3>駅前・商店街</h3><p>透真が知らない人に声をかけて会話する場所。四章後、莉央が垢抜けた透真を目撃する。</p></div>
+    <div class="card"><div class="meta">AFTER SCHOOL</div><h3>寄り道スポット</h3><p>透真とひよりが一緒に食べて帰る店、コンビニ、ファミレスなど。恋愛より先に日常を積む。</p></div>
+    <div class="card"><div class="meta">HOME</div><h3>天野家</h3><p>ひよりの妹と世話好きな側面を見せる場所。料理・弁当イベントの根拠。</p></div>
+  </div>
+</section>
+
+<section class="section searchable" id="props">
+  <div class="section-head"><h2>小道具</h2><span class="sub">繰り返し使える具体物</span></div>
+  <details open><summary>ウォータージャグ <span>美怜の恋の起点</span></summary><div class="detail-body">
+    <p>バスケ部の給水用大型ジャグ。満水だと重い。透真が「それ、重そうだよね？」と自然に運ぶ。美怜にとって重要だが、透真はほぼ覚えていない。</p>
+  </div></details>
+  <details><summary>録音データ <span>二章→三章の導火線</span></summary><div class="detail-body">
+    <p>嘘告白企画時の会話。美怜が「保険」として録音。編集なしでも、話の振り方によって莉央が首謀者に見える。</p>
+  </div></details>
+  <details><summary>黒瀬莉央のSNS</summary><div class="detail-body">
+    <p>美容・コーデ・カフェ・日常系。校内では十分インフルエンサー扱いされる規模。嘘告白そのものを公開する設定にはしない。</p>
+  </div></details>
+  <details><summary>ひよりの弁当</summary><div class="detail-body">
+    <p>料理上手だが、相手の好物を全部入れたくなるため品数と量が増える。「俺、今日遠足だったっけ？」が成立する。</p>
+  </div></details>
+  <details><summary>透真の学校外私服</summary><div class="detail-body">
+    <p>清潔感を最優先したシンプルな服。派手ではないが、髪も含めて学校より明らかに垢抜けて見える。莉央が最初にギャップへ気づく。</p>
+  </div></details>
+</section>
+
+<section class="section searchable" id="chapters">
+  <div class="section-head"><h2>章構成</h2><span class="sub">現在の大枠</span></div>
+  <details open><summary>第一章　嘘告白と一週間の偽恋人</summary><div class="detail-body"><p>焦点：綾華。嘘告白→一週間の理想的な交際→真相告白→「バイバイ」→綾華絶望。</p></div></details>
+  <details><summary>第二章　恋敵が消えたと思っていた</summary><div class="detail-body"><p>焦点：美怜。噂を流す→慰め役として接近→告白→「普通に生理的に無理」→録音提出。</p></div></details>
+  <details><summary>第三章　おもしれー女</summary><div class="detail-body"><p>焦点：ひより。莉央停学で居場所を失い、透真と自然に近づく。透真の予測を外し続け、「もっと見ていたい」へ。</p></div></details>
+  <details><summary>第四章　帰ってきた火種</summary><div class="detail-body"><p>焦点：女子グループ崩壊。莉央復帰→三人の激論→ひよりまで巻き込まれて爆発→四人組解散状態へ。</p></div></details>
+  <details><summary>第五章　何もしてないのに一番近い</summary><div class="detail-body"><p>焦点：牽制と恋愛移行。三人が互いに牽制する裏で、透真とひよりが日常的に近づく。ひよりが一度距離を取ろうとし、透真が引き止める。</p></div></details>
+</section>
+
+<section class="section searchable" id="notes">
+  <div class="section-head"><h2>執筆メモ</h2><span class="sub">AI執筆時の事故防止</span></div>
+  <div class="quote">人物の長所と短所を同時に働かせる。プロットに合わせて人物を曲げず、人物が選んだ結果として次の事件を起こす。</div>
+  <details open><summary>透真</summary><div class="detail-body"><ul><li>陰キャ・コミュ障化しない。</li><li>観察結果には必ず根拠を置く。</li><li>説教役にしない。</li><li>相手を読み切る万能キャラにしない。</li></ul></div></details>
+  <details><summary>綾華</summary><div class="detail-body"><ul><li>高飛車なお嬢様にしない。</li><li>男嫌いではなく、幼い告白にうんざり。</li><li>倫理観があるからこそ自分で真実を明かす。</li></ul></div></details>
+  <details><summary>美怜</summary><div class="detail-body"><ul><li>最初から露骨な悪女にしない。</li><li>透真への好意は本物。</li><li>万能策士ではなく、恋愛が絡むと感情で自爆。</li></ul></div></details>
+  <details><summary>莉央</summary><div class="detail-body"><ul><li>初期の醜悪さを薄めない。</li><li>「実はいい子」に寄せすぎない。</li><li>ただし本気で誰かを壊したい完成された悪人でもない。</li></ul></div></details>
+  <details><summary>ひより</summary><div class="detail-body"><ul><li>知能の低いバカにしない。</li><li>人間関係だけ天然。</li><li>世話好きは強みだが、加減が下手。</li></ul></div></details>
+</section>
+
+<div class="footer">
+  <p>嘘告白 設定資料室 — private working archive / 2026</p>
+</div>
+
+</div>
+</main>
+</div>
+<script>
+const q=document.getElementById('search');
+q.addEventListener('input',()=>{
+  const s=q.value.trim().toLowerCase();
+  document.querySelectorAll('.searchable').forEach(sec=>{
+    sec.classList.toggle('hidden', s && !sec.innerText.toLowerCase().includes(s));
+  });
+});
+</script>
+</body>
+</html>
